@@ -45,9 +45,9 @@ const check = () =>{
         ) {
             result = 'нулики'
             prepareResult(result)
-        } else if (condition) {
+//         } else if (condition) {
             
-        }
+//         }
     }
 }
 
