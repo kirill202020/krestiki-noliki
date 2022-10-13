@@ -6,6 +6,7 @@ const modalWrapper = document.querySelector('.modal__wrapper')
 const modal = document.querySelector('.modal')
 const btnClose = document.querySelector('.btn__close')
 const boxes = document.getElementsByClassName('box')
+let waiter = 0
 
 area.addEventListener('click', e =>{
     if (e.target.className = 'box') {
@@ -45,17 +46,17 @@ const check = () =>{
         ) {
             result = 'нулики'
             prepareResult(result)
-//         } else if (condition) {
-            
-//         }
+        }
     }
 }
+
 
 ////////////////////////////////////////////////////////////////
 
 const prepareResult = winner =>{
     content.innerHTML = `Перемогли: ${winner}`
     modal.style.display = 'block'
+    waiter = 0
 }
 
 const closeModal = () =>{
@@ -66,6 +67,16 @@ const closeModal = () =>{
     move = 0
 }
 
+const aparat = () => {
+    if (waiter < 8) {
+        waiter++
+    } else {
+        result = 'дружба'
+        prepareResult(result)
+    }
+}
+
+area.addEventListener('click', aparat)
 
 btnClose.addEventListener('click', closeModal)
 modalWrapper.addEventListener('click', closeModal)
